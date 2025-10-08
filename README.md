@@ -1,63 +1,63 @@
-🎓 API de Matrículas em Cursos (Spring Boot)
+✨ Conceitos e Padrões Aplicados
+Este projeto foi desenvolvido como um exercício prático para solidificar os seguintes conceitos e tecnologias do ecossistema Spring:
 
-API RESTful desenvolvida com Spring Boot que simula um sistema de matrículas para uma plataforma de cursos online.
-A aplicação permite gerenciar alunos e cursos, e a principal funcionalidade é a inscrição de múltiplos alunos em múltiplos cursos, demonstrando na prática um relacionamento Many-to-Many com JPA.
+API RESTful com Spring Web: Construção de endpoints seguindo os padrões REST.
 
-✨ Conceitos e Tecnologias Aplicadas
+Persistência de dados com Spring Data JPA: Abstração da camada de acesso a dados usando repositórios.
 
-Este projeto foi criado como exercício prático para reforçar conceitos fundamentais do ecossistema Spring e boas práticas de desenvolvimento:
+Relacionamento Many-to-Many (@ManyToMany): Mapeamento de relacionamentos complexos entre entidades usando uma Tabela de Junção (@JoinTable).
 
-API RESTful (Spring Web): construção de endpoints seguindo os padrões REST.
+Arquitetura em 3 Camadas: Separação de responsabilidades entre Controller (API), Service (lógica de negócio) e Repository (dados).
 
-Spring Data JPA: persistência de dados com abstração da camada de acesso ao banco.
+Padrão DTO (Data Transfer Object): Utilização de records Java para desacoplar a camada da API da camada de persistência, evitando loops infinitos e expondo apenas os dados necessários.
 
-Relacionamento Many-to-Many: uso das anotações @ManyToMany e @JoinTable para representar tabelas de junção.
+Tratamento de Exceções: Gerenciamento de casos de erro, como entidades não encontradas (EntityNotFoundException).
 
-Arquitetura em 3 camadas: separação entre Controller (API), Service (lógica de negócio) e Repository (dados).
-
-DTO (Data Transfer Object): uso de records Java para desacoplar as camadas e evitar loops de serialização.
-
-Tratamento de exceções: gerenciamento de erros como EntityNotFoundException.
-
-Injeção de dependências (IoC): uso do mecanismo do Spring para gerenciar componentes.
+Injeção de Dependências: Uso do mecanismo principal do Spring para gerenciar os componentes da aplicação.
 
 🚀 Funcionalidades
+[x] CRUD de Alunos: Criar e listar alunos.
 
-✅ CRUD de Alunos: criar e listar alunos.
-✅ CRUD de Cursos: criar e listar cursos.
-✅ Sistema de Matrícula: inscrever alunos em cursos (Many-to-Many).
-✅ Consulta de Matrículas: listar todos os alunos matriculados em um curso específico.
+[x] CRUD de Cursos: Criar e listar cursos.
+
+[x] Sistema de Matrícula: Matricular um aluno em um curso.
+
+[x] Consulta de Matrículas: Listar todos os alunos matriculados em um curso específico.
 
 🛠️ Endpoints da API
+A URL base da aplicação é http://localhost:8080.
 
-Base URL: http://localhost:8080
+Alunos (/students)
+Método	URL	Descrição	Exemplo de Corpo (Request)
+POST	/students	Cria um novo aluno.	{"name": "Ana Silva", "email": "ana.silva@email.com"}
+GET	/students	Lista todos os alunos.	N/A
 
-👩‍🎓 Alunos (/students)
-Método	URL	Descrição	Exemplo de Corpo
-POST	/students	Cria um novo aluno	{ "name": "Ana Silva", "email": "ana.silva@email.com" }
-GET	/students	Lista todos os alunos	—
-📚 Cursos (/courses)
-Método	URL	Descrição	Exemplo de Corpo
-POST	/courses	Cria um novo curso	{ "name": "Java para Iniciantes", "instructor": "Prof. Carlos" }
-GET	/courses	Lista todos os cursos	—
-🔗 Matrículas (/courses/...)
+Exportar para as Planilhas
+Cursos (/courses)
+Método	URL	Descrição	Exemplo de Corpo (Request)
+POST	/courses	Cria um novo curso.	{"name": "Java para Iniciantes", "instructor": "Prof. Carlos"}
+GET	/courses	Lista todos os cursos.	N/A
+
+Exportar para as Planilhas
+Matrículas (/courses/...)
 Método	URL	Descrição
-POST	/courses/{courseId}/enroll/{studentId}	Matricula um aluno (studentId) em um curso (courseId)
-GET	/courses/{courseId}/students	Lista todos os alunos matriculados em um curso específico
+POST	/courses/{courseId}/enroll/{studentId}	Matricula um aluno (studentId) em um curso (courseId).
+GET	/courses/{courseId}/students	Lista todos os alunos matriculados em um curso específico.
+
+Exportar para as Planilhas
 💻 Tecnologias Utilizadas
+Java 17+
 
-☕ Java 17+
+Spring Boot 3+
 
-🌱 Spring Boot 3+
+Spring Data JPA (com Hibernate)
 
-🗃️ Spring Data JPA (Hibernate)
+Spring Web
 
-🌐 Spring Web
+H2 Database (Banco de dados em memória)
 
-🧠 Lombok — para reduzir código boilerplate
+Maven (Gerenciador de dependências)
 
-🧰 Maven — gerenciamento de dependências
+Lombok (Para reduzir código boilerplate)
 
-🧩 H2 Database — banco em memória (para testes)
-
-🧪 Insomnia / Postman — testes da API
+Insomnia / Postman (Para testar a API)
